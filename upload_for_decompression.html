@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+		
+		<style>
+			.inpt
+			{	
+				padding: 15px 25px;
+				font-size: 24px;
+				text-align: center;
+				cursor: pointer;
+				outline: none;
+				color: #fff;
+				background-color: #4CAF50;
+				border: none;
+				border-radius: 15px;
+				box-shadow: 0 9px #BBB;
+				float: center;
+			}
+			h2
+			{
+				text-align: center;
+				color: #000;
+				
+			}		
+		</style>
+
+
+<title>Python Flask File Upload Example</title>
+</head>
+
+<body style="background-image: url('https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 100%;
+	height: auto">
+	<br><br>
+	<h2>Select a file to upload</h2><br><br>
+	<p>
+		{% with messages = get_flashed_messages() %}
+		  {% if messages %}
+			<ul class=flashes>
+			{% for message in messages %}
+			  <li>{{ message }}</li>
+			{% endfor %}
+			</ul>
+		  {% endif %}
+		{% endwith %}
+	</p>
+	<form method="post" action="/decompression" enctype="multipart/form-data">
+		<dl align='center' style="margin: 0 auto">
+			<p align="center">
+				<input align="center" class='inpt' type="file" name="file" autocomplete="off" required>
+			</p>
+		<br>
+		<br>
+		<p align="center">
+			<input align="center" class='inpt' type="submit" value="Submit">
+		</p>
+
+		</dl>
+	</form>
+</body>
+</html>
